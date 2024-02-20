@@ -20,6 +20,7 @@
 		<module>discovery-service</module>
 		<module>reader-service</module>
 		<module>starter-service</module>
+		<module>user-service</module>
         <module>api</module>
     </modules>
 	<properties>
