@@ -1,5 +1,6 @@
 package ru.gb.gateway.security;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ public class RouteValidator {
             "/v1/auth/register",
             "/v1/auth/login",
             "/v1/auth/info",
+            "/v1/users/**",
             "/eureka"
     );
 

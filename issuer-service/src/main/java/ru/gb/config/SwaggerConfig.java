@@ -1,4 +1,4 @@
-package ru.gb.userservice.config;
+package ru.gb.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+//@OpenAPIDefinition(info = @Info(title = "Book api", description = "A simple multi-language Greetings API."))
 public class SwaggerConfig {
     @Bean
     public OpenAPI openAPI() {
@@ -24,8 +25,8 @@ public class SwaggerConfig {
                                 )
                 )
                 .info(new Info()
-                        .title("Demo microservice")
-                        .description("Демо микросервис")
+                        .title("Issue service")
+                        .description("Сервис для работы с выдачей книг читателям")
                         .version("1.0")
                 );
     }

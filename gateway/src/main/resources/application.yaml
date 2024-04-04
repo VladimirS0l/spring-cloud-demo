@@ -1,0 +1,68 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RewritePath=/auth/(?<path>.*), /$\{path}
+            - AuthenticationFilter
+
+        - id: reader-service
+          uri: lb://reader-service
+          predicates:
+            - Path=/reader/**,
+          filters:
+            - RewritePath=/reader/(?<segment>.*), /$\{segment}
+            - AuthenticationFilter
+
+        - id: book-service
+          uri: lb://book-service
+          predicates:
+            - Path=/book/**
+          filters:
+            - RewritePath=/book/(?<segment>.*), /$\{segment}
+            - AuthenticationFilter
+
+        - id: issuer-service
+          uri: lb://issue-service
+          predicates:
+            - Path=/issue/**
+          filters:
+            - RewritePath=/issue/(?<path>.*), /$\{path}
+            - AuthenticationFilter
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+security:
+  jwt:
+    secret: 9a4f2c8d3b7a1e6f45c8a0b3f267d8b1d4e6f3c8a9d2b5f8e3a9c8b5f6v8a3d9
+    access: 24
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+
+
+
+
+

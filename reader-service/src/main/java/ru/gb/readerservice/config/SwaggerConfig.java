@@ -1,5 +1,7 @@
-package ru.gb.userservice.config;
+package ru.gb.readerservice.config;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+//import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -9,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+//@OpenAPIDefinition(info = @Info(title = "Reader api", description = "A simple reader API."))
 public class SwaggerConfig {
     @Bean
     public OpenAPI openAPI() {
@@ -24,8 +27,8 @@ public class SwaggerConfig {
                                 )
                 )
                 .info(new Info()
-                        .title("Demo microservice")
-                        .description("Демо микросервис")
+                        .title("Reader service")
+                        .description("Сервис для работы с читателями")
                         .version("1.0")
                 );
     }

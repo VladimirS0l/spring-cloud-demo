@@ -1,7 +1,10 @@
-package ru.gb.userservice.config;
+package ru.gb.config;
+
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
+
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
@@ -24,8 +27,8 @@ public class SwaggerConfig {
                                 )
                 )
                 .info(new Info()
-                        .title("Demo microservice")
-                        .description("Демо микросервис")
+                        .title("Book service")
+                        .description("Сервис для работы с книгами")
                         .version("1.0")
                 );
     }

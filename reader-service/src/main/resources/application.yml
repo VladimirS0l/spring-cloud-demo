@@ -1,5 +1,6 @@
 server:
   port: 8660
+  forward-headers-strategy: framework
 eureka:
   client:
     serviceUrl:
@@ -7,3 +8,14 @@ eureka:
 spring:
   application:
     name: reader-service
+
+#openapi:
+#  service:
+#    title: reader-service doc
+#    version: 1.0.0
+#    url: http://localhost:8765 #api gateway url
+#springdoc:
+#  api-docs:
+#    path: /reader/v3/api-docs
+#  swagger-ui:
+#    path: /reader/swagger-ui.html
